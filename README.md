@@ -1,3 +1,10 @@
+# CS5167 - Project 1
+This project is aiming to develop a web application that allows users to track/journal about their Mental Health.
+
+This was developed for CS5167 - USER INTERACE I at the University of Cincinnati, Fall Semester 2024
+
+Developed by: Andrew T. Pipo
+
 # Svelte + Vite
 
 This template should help get you started developing with Svelte in Vite.
