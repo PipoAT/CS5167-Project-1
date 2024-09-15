@@ -81,6 +81,7 @@ button:focus-visible {
 .container {
   display: flex;
   gap: 10px;
+  height: max-content;
 }
 
 #overview {
