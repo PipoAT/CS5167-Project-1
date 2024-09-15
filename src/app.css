@@ -91,7 +91,6 @@ button:focus-visible {
   color: lightblue;
   background-color: darkcyan;
   border-radius: 10px;
-  padding: 10px;
 }
 
 #form {

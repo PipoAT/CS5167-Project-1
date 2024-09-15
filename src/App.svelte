@@ -8,12 +8,15 @@
       <div id="overview-sep">
         <h2>Welcome, UserName!</h2>
       </div>
+      <br>
       <div id="overview-sep">
         <h2>{currentDateOnly}</h2>
       </div>
+      <br>
       <div id="overview-sep">
         <h2>It has been {daysSince} day(s) since you joined</h2>
       </div>
+      <br>
       <div id="overview-sep">
         <h2>You have been active for {daysSince} day(s) in a row!</h2>
       </div>
