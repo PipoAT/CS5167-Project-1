@@ -85,6 +85,9 @@ button:focus-visible {
 
 #overview {
   flex: 0 0 30%;
+}
+
+#overview-sep {
   color: lightblue;
   background-color: darkcyan;
   border-radius: 10px;
