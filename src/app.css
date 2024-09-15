@@ -80,6 +80,15 @@ button:focus-visible {
 
 #overview {
   color: lightblue;
+  width: 30%;
+  background-color: darkcyan;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#form {
+  width: 70%;
+  color: lightblue;
   background-color: darkcyan;
   border-radius: 10px;
   padding: 10px;
