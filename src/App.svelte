@@ -23,7 +23,7 @@
     </div>
     <div id="form">
       <div id="form-date">
-        <h2>{currentDateOnly}</h2>
+        <h2 id="date-display-form">{currentDateOnly}</h2>
       </div>
       <br>
       <div id="form-main">
@@ -59,8 +59,8 @@
       </div>
       <br>
       <div id="form-nav">
-        <button type="submit">Previous</button>
-        <button type="submit">Next</button>
+        <button id="incrementButton" type="submit">Previous</button>
+        <button id="decrementButton" type="submit">Next</button>
       </div>
     </div>
   </div>
