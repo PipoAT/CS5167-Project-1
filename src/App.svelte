@@ -52,7 +52,7 @@
           <input type="radio" id="effect-no" name="effect" value="no">
           <label for="affect-no">No</label>
           <br>
-          <button type="submit">Save</button>
+          <button id="saveButton" type="submit">Save</button>
           <button type="submit">Edit</button>
           <button type="submit">Delete</button>
         </form>
