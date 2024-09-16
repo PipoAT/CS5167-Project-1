@@ -17,13 +17,18 @@ const app = new App({
 })
 
 function updateDate(increment) {
-  currentDateSelected.setDate(currentDateSelected.getDate() + increment);
+  let newDate = new Date(currentDateSelected);
+  newDate.setDate(newDate.getDate() + increment);
 
-  app.$set({
-    currentDateOnly,
-    currentDateSelected: currentDateSelected.toLocaleDateString(), // Update as string
-    daysSince
-  });
+  if (newDate <= currentDate) {
+    currentDateSelected = newDate;
+
+    app.$set({
+      currentDateOnly,
+      currentDateSelected: currentDateSelected.toLocaleDateString(), // Update as string
+      daysSince
+    });
+  }
 }
 
 document.getElementById('incrementButton').addEventListener('click', () => updateDate(1));
