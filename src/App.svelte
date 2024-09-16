@@ -36,14 +36,17 @@
           <br>
           <br>
           <label for="emotions">What emoitions were you experiencing?</label>
+          <br>
           <textarea id="emotions" name="emotions" required></textarea>
           <br>
           <br>
           <label for="thoughts">What thoughts were you experiencing?</label>
+          <br>
           <textarea id="thoughts" name="thoughts" required></textarea>
           <br>
           <br>
           <label for="events">What events occured that led up to or triggered your anxiety and/or emotions?</label>
+          <br>
           <textarea id="events" name="events" required></textarea>
           <br>
           <br>
