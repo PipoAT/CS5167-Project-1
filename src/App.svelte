@@ -1,5 +1,5 @@
 <script>
-  export let currentDateOnly, daysSince
+  export let currentDateOnly, daysSince, currentDateSelected
 </script>
 
 <main>
@@ -23,7 +23,7 @@
     </div>
     <div id="form">
       <div id="form-date">
-        <h2>{currentDateOnly}</h2>
+        <h2 id="date-display-form">{currentDateSelected}</h2>
       </div>
       <br>
       <div id="form-main">
@@ -52,15 +52,15 @@
           <input type="radio" id="effect-no" name="effect" value="no">
           <label for="affect-no">No</label>
           <br>
-          <button type="submit">Save</button>
+          <button id="saveButton" type="submit">Save</button>
           <button type="submit">Edit</button>
           <button type="submit">Delete</button>
         </form>
       </div>
       <br>
       <div id="form-nav">
-        <button type="submit">Previous</button>
-        <button type="submit">Next</button>
+        <button id="decrementButton" type="submit">Previous</button>
+        <button id="incrementButton" type="submit">Next</button>
       </div>
     </div>
   </div>
