@@ -34,23 +34,29 @@
           <input type="radio" id="anxiety-no" name="anxiety" value="no">
           <label for="anxiety-no">No</label>
           <br>
+          <br>
           <label for="emotions">What emoitions were you experiencing?</label>
-          <input type="text" id="emotions" name="emotions" required>
+          <textarea id="emotions" name="emotions" required></textarea>
+          <br>
           <br>
           <label for="thoughts">What thoughts were you experiencing?</label>
-          <input type="text" id="thoughts" name="thoughts" required>
+          <textarea id="thoughts" name="thoughts" required></textarea>
+          <br>
           <br>
           <label for="events">What events occured that led up to or triggered your anxiety and/or emotions?</label>
-          <input type="text" id="events" name="events" required>
+          <textarea id="events" name="events" required></textarea>
+          <br>
           <br>
           <label for="time">How long did you expreince anxiety/emotions?</label>
           <input type="text" id="time" name="time" required>
+          <br>
           <br>
           <label for="effect">Did it effect any daily routines or tasks for the day?</label>
           <input type="radio" id="effect-yes" name="effect" value="yes">
           <label for="affect-yes">Yes</label>
           <input type="radio" id="effect-no" name="effect" value="no">
           <label for="affect-no">No</label>
+          <br>
           <br>
           <button id="saveButton" type="submit">Save</button>
           <button type="submit">Edit</button>
