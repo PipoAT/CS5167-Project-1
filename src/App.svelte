@@ -1,5 +1,5 @@
 <script>
-  export let currentDateOnly, daysSince, currentDateSelected
+  export let currentDateOnly, daysSince, currentDateSelected, entry
 </script>
 
 <main>
@@ -37,7 +37,7 @@
           <br>
           <label for="emotions">What emoitions were you experiencing?</label>
           <br>
-          <textarea id="emotions" name="emotions" required></textarea>
+          <textarea id="emotions" name="emotions" bind:value={entry.emotions} required></textarea>
           <br>
           <br>
           <label for="thoughts">What thoughts were you experiencing?</label>
