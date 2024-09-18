@@ -4,7 +4,7 @@
     import { onMount } from 'svelte';
 
     let entries = {
-      '2024-09-01': { anxiety: 'yes', emotions: 'happy', thoughts: 'positive', events: 'party', time: '2 hours', effect: 'no' },
+      '9/2/2024': { anxiety: 'yes', emotions: 'happy', thoughts: 'positive', events: 'party', time: '2 hours', effect: 'no' },
       '2024-09-02': { anxiety: 'no', emotions: 'sad', thoughts: 'negative', events: 'work', time: '3 hours', effect: 'yes' }
       // Add more entries as needed
     };
