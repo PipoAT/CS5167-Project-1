@@ -15,7 +15,6 @@ const app = new App({
     currentDateSelected: currentDateSelected.toLocaleDateString(),
     daysSince,
     entry: entries[currentDateSelected.toLocaleDateString()] || {},
-    saveEntry: saveForm
   }
 })
 
