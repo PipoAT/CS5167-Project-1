@@ -99,7 +99,7 @@
           <input type="radio" id="effect-no" name="effect" value="no" bind:group={entry.effect}>
           <label for="effect-no">No</label>
           <br><br>
-          <button id="saveButton" type="submit">Save</button>
+          <button id="saveButton" on:click={() => saveForm()}>Save</button>
         </form>
       </div>
       <br>
