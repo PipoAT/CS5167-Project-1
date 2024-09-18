@@ -43,7 +43,7 @@
         </div>
         <br>
         <div id="form-main">
-          <form on:submit|preventDefault={saveEntry}>
+          <form on:submit={saveEntry}>
             <label for="anxiety">Did you feel anxious today?</label>
             <input type="radio" id="anxiety-yes" name="anxiety" value="yes" bind:group={entry.anxiety}>
             <label for="anxiety-yes">Yes</label>
