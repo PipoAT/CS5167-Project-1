@@ -16,10 +16,22 @@ const app = new App({
 })
 
 // saveData is a function that saves the data to the database/backend
-function saveData() {
-  // save the logs here based on the date
-  // alert user that data is saved
-  alert("Your log has been saved!");
+let entries = {};
+
+function saveForm(event) {
+  const formData = new FormData(event.target);
+  const entry = {
+    currentDateSelected: currentDateSelected.toLocaleDateString(),
+    anxiety: formData.get('anxiety'),
+    emotions: formData.get('emotions'),
+    thoughts: formData.get('thoughts'),
+    events: formData.get('events'),
+    time: formData.get('time'),
+    effect: formData.get('effect')
+  };
+  entries[currentDateSelected] = entry;
+  localStorage.setItem('entries', JSON.stringify(entries));
+  alert('Entry saved!');
 }
 
 // updateDate is a function that updates the date associated with the form to
@@ -47,6 +59,6 @@ document.getElementById('incrementButton').addEventListener('click', () => updat
 // event listener to update the select date if clicking "PREVIOUS" to subtract one day to the date each time
 document.getElementById('decrementButton').addEventListener('click', () => updateDate(-1));
 // event listener to save the data
-document.getElementById('saveButton').addEventListener('click', () => saveData());
+document.getElementById('saveButton').addEventListener('click', () => saveForm());
 
 export default app
