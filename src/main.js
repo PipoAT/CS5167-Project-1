@@ -7,7 +7,6 @@ let currentDateSelected = new Date(currentDate);
 const startDate = new Date('2024-09-09');
 let daysSince = Math.floor((currentDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
 let entries = JSON.parse(localStorage.getItem('entries')) || {};
-let entry = entries[currentDateSelected.toLocaleDateString()] || {};
 
 const app = new App({
   target: document.getElementById('app'),
@@ -20,6 +19,7 @@ const app = new App({
 })
 
 function saveForm(event) {
+  event.preventDefault();
   const formData = new FormData(event.target);
   const entry = {
     currentDateSelected: currentDateSelected.toLocaleDateString(),
