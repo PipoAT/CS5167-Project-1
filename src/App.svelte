@@ -79,9 +79,9 @@
     </div>
     <div id="form">
       <div id="form-date" style="display: flex; align-items: center; justify-content: center;">
-        <img src="public\assets\left-arrow.png" alt="Previous" on:click={() => updateDate(-1)} />
+        <img src=".\assets\left-arrow.png" alt="Previous" on:click={() => updateDate(-1)} />
         <h2 id="date-display-form" style="margin: 0 10px;">{currentDateSelected}</h2>
-        <img src="public\assets\right-arrow.png" alt="Next" on:click={() => updateDate(1)}/>
+        <img src=".\assets\right-arrow.png" alt="Next" on:click={() => updateDate(1)}/>
       </div>
       <br>
       <div id="form-main">
