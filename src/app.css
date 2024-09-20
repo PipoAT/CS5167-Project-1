@@ -75,12 +75,22 @@ button:focus-visible {
   align-items: stretch;
 }
 #overview {
-  flex: 0 0 30%;
+  flex: 0 0 25%;
   height: 100%;
 }
 #overview-sep {
   color: white;
   background-color: #88ACB5;
+  border-radius: 10px;
+  padding: 10px;
+}
+#data {
+  flex: 0 0 25%;
+  height: 100%;
+}
+#data-sep {
+  color: white;
+  background-color: #c63016;
   border-radius: 10px;
   padding: 10px;
 }

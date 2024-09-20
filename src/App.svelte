@@ -58,32 +58,61 @@
   }
 
   $: isEntrySaved = entry.anxiety || entry.emotions || entry.thoughts || entry.events || entry.time || entry.effect;
+
+  $: daysAnxious = Object.keys(entries)
+          .filter(date => {
+            let entryDate = new Date(date);
+            let today = new Date();
+            let diffTime = Math.abs(today.getTime() - entryDate.getTime());
+            let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays <= 7 && entries[date].anxiety === 'yes';
+          }).length;
+
+  $: daysAffected = Object.keys(entries)
+          .filter(date => {
+            let entryDate = new Date(date);
+            let today = new Date();
+            let diffTime = Math.abs(today.getTime() - entryDate.getTime());
+            let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays <= 7 && entries[date].effect === 'yes';
+          }).length;
+
+  $: averageAnxious = (Object.keys(entries)
+        .filter(date => {
+          let entryDate = new Date(date);
+          let today = new Date();
+          let diffTime = Math.abs(today.getTime() - entryDate.getTime());
+          let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+          return diffDays <= 7 && entries[date].time;
+        })
+        .reduce((total, date) => {
+          let time = parseFloat(entries[date].time);
+          return total + (isNaN(time) ? 0 : time);
+        }, 0) / 7).toFixed(2);
 </script>
 
 <main>
   <div class="container">
     <div id="overview">
       <div id="overview-sep">
-        <h2>Welcome, Andrew Pipo!</h2>
+        <h3>Welcome Back, Andrew Pipo!</h3>
+        <h3>Today's Date: {currentDateOnly}</h3>
       </div>
       <br>
       <div id="overview-sep">
-        <h2>Today's Date: {currentDateOnly}</h2>
+        <h3>Days since you joined/starting logging:</h3>
+        <h3>{daysSince}</h3>
       </div>
       <br>
       <div id="overview-sep">
-        <h2>It has been {daysSince} day(s) since you joined</h2>
-      </div>
-      <br>
-      <div id="overview-sep">
-        <h2>You have an daily active streak for:</h2> 
-        <h2>{daysSince} day(s)</h2>
+        <h3>You have an daily active streak for:</h3> 
+        <h3>{daysSince} day(s)</h3>
       </div>
     </div>
     <div id="form">
       <div id="form-date" style="display: flex; align-items: center; justify-content: center;">
         <img id="decrement-button" src=".\assets\left-arrow.png" alt="Previous" on:click={() => updateDate(-1)} />
-        <h2 id="date-display-form" style="margin: 0 10px;">{currentDateSelected}</h2>
+        <h3 id="date-display-form" style="margin: 0 10px;">{currentDateSelected}</h3>
         <img id="increment-button" src=".\assets\right-arrow.png" alt="Next" on:click={() => updateDate(1)}/>
       </div>
       <br>
@@ -107,9 +136,9 @@
           <br>
           <textarea id="events" name="events" bind:value={entry.events} required></textarea>
           <br><br>
-          <label for="time">How long did you experience anxiety/emotions?</label>
+          <label for="time">How long did you experience anxiety/emotions in hours?</label>
           <br>
-          <input type="text" id="time" name="time" bind:value={entry.time} required>
+          <input type="number" id="time" name="time" bind:value={entry.time} required>
           <br><br>
           <label for="effect">Did it affect any daily routines or tasks for the day?</label>
           <input type="radio" id="effect-yes" name="effect" value="yes" bind:group={entry.effect} required>
@@ -120,6 +149,22 @@
           <button id="saveButton" type="submit">Save</button>
           <button id="deleteButton" on:click={deleteForm} disabled={!isEntrySaved}>Delete</button>
         </form>
+      </div>
+    </div>
+    <div id="data">
+      <div id="data-sep">
+        <h3>Number of Days in Past Week You Felt Anxious:</h3>
+        <h3>{daysAnxious}</h3>
+      </div>
+      <br>
+      <div id="data-sep">
+        <h3>Number of Days in Past Week it has Affected Daily Tasks:</h3>
+        <h3>{daysAffected}</h3>
+      </div>
+      <br>
+      <div id="data-sep">
+        <h3>Average Time in Past Week of feeling Anxious:</h3>
+        <h3>{averageAnxious} hour(s)</h3> 
       </div>
     </div>
   </div>
