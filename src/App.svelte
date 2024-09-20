@@ -58,6 +58,15 @@
   }
 
   $: isEntrySaved = entry.anxiety || entry.emotions || entry.thoughts || entry.events || entry.time || entry.effect;
+
+  $: daysAnxious = Object.keys(entries)
+          .filter(date => {
+            let entryDate = new Date(date);
+            let today = new Date();
+            let diffTime = Math.abs(today - entryDate);
+            let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays <= 7 && entries[date].anxiety === 'yes';
+          }).length;
 </script>
 
 <main>
@@ -124,7 +133,8 @@
     </div>
     <div id="data">
       <div id="data-sep">
-        <h2>Welcome, Andrew Pipo!</h2>
+        <h2>Number of Days in Past Week You Felt Anxious:</h2>
+        <h2>{daysAnxious}</h2>
       </div>
       <br>
       <div id="data-sep">
