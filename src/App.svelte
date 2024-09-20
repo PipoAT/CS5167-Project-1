@@ -63,7 +63,7 @@
           .filter(date => {
             let entryDate = new Date(date);
             let today = new Date();
-            let diffTime = Math.abs(today - entryDate);
+            let diffTime = Math.abs(today.getTime() - entryDate.getTime());
             let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
             return diffDays <= 7 && entries[date].anxiety === 'yes';
           }).length;
@@ -72,10 +72,23 @@
           .filter(date => {
             let entryDate = new Date(date);
             let today = new Date();
-            let diffTime = Math.abs(today - entryDate);
+            let diffTime = Math.abs(today.getTime() - entryDate.getTime());
             let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
             return diffDays <= 7 && entries[date].effect === 'yes';
           }).length;
+
+  $: averageAnxious = (Object.keys(entries)
+        .filter(date => {
+          let entryDate = new Date(date);
+          let today = new Date();
+          let diffTime = Math.abs(today.getTime() - entryDate.getTime());
+          let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+          return diffDays <= 7 && entries[date].time;
+        })
+        .reduce((total, date) => {
+          let time = parseFloat(entries[date].time);
+          return total + (isNaN(time) ? 0 : time);
+        }, 0) / 7).toFixed(2);
 </script>
 
 <main>
@@ -125,9 +138,9 @@
           <br>
           <textarea id="events" name="events" bind:value={entry.events} required></textarea>
           <br><br>
-          <label for="time">How long did you experience anxiety/emotions?</label>
+          <label for="time">How long did you experience anxiety/emotions in hours?</label>
           <br>
-          <input type="text" id="time" name="time" bind:value={entry.time} required>
+          <input type="number" id="time" name="time" bind:value={entry.time} required>
           <br><br>
           <label for="effect">Did it affect any daily routines or tasks for the day?</label>
           <input type="radio" id="effect-yes" name="effect" value="yes" bind:group={entry.effect} required>
@@ -152,13 +165,10 @@
       </div>
       <br>
       <div id="data-sep">
-        <h2>It has been {daysSince} day(s) since you joined</h2>
+        <h2>Average Time of feeling Anxious:</h2>
+        <h2>{averageAnxious} hour(s)</h2> 
       </div>
       <br>
-      <div id="data-sep">
-        <h2>You have an daily active streak for:</h2> 
-        <h2>{daysSince} day(s)</h2>
-      </div>
     </div>
   </div>
 </main>
