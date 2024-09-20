@@ -75,7 +75,7 @@ button:focus-visible {
   align-items: stretch;
 }
 #overview {
-  flex: 0 0 30%;
+  flex: 0 0 25%;
   height: 100%;
 }
 #overview-sep {
