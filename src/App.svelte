@@ -56,8 +56,6 @@
       entry = entries[currentDateSelected] || { anxiety: '', emotions: '', thoughts: '', events: '', time: '', effect: '' };
     }
   }
-
-  $: isEntrySaved = entry.anxiety || entry.emotions || entry.thoughts || entry.events || entry.time || entry.effect;
 </script>
 
 <main>
@@ -118,7 +116,7 @@
           <label for="effect-no">No</label>
           <br><br>
           <button id="saveButton" type="submit">Save</button>
-          <button id="deleteButton" on:click={deleteForm} disabled={!isEntrySaved}>Delete</button>
+          <button id="deleteButton" on:click={() => deleteForm()} disabled={!entries[currentDateSelected]}>Delete</button>
         </form>
       </div>
     </div>
