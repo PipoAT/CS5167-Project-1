@@ -165,7 +165,7 @@
       </div>
       <br>
       <div id="data-sep">
-        <h2>Average Time of feeling Anxious:</h2>
+        <h2>Average Time in Past Week of feeling Anxious:</h2>
         <h2>{averageAnxious} hour(s)</h2> 
       </div>
       <br>
