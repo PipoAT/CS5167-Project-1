@@ -112,6 +112,8 @@ button:focus-visible {
   background-color: #cb935f;
   border-radius: 10px;
   padding: 10px;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 #decrement-button,
