@@ -113,3 +113,9 @@ button:focus-visible {
   border-radius: 10px;
   padding: 10px;
 }
+
+#decrement-button,
+#increment-button {
+  width: 100px;
+  height: 100px;
+}
