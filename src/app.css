@@ -84,6 +84,16 @@ button:focus-visible {
   border-radius: 10px;
   padding: 10px;
 }
+#data {
+  flex: 0 0 30%;
+  height: 100%;
+}
+#data-sep {
+  color: white;
+  background-color: #c63016;
+  border-radius: 10px;
+  padding: 10px;
+}
 #form {
   flex: 1;
 }

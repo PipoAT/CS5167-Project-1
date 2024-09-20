@@ -122,5 +122,23 @@
         </form>
       </div>
     </div>
+    <div id="data">
+      <div id="data-sep">
+        <h2>Welcome, Andrew Pipo!</h2>
+      </div>
+      <br>
+      <div id="data-sep">
+        <h2>Today's Date: {currentDateOnly}</h2>
+      </div>
+      <br>
+      <div id="data-sep">
+        <h2>It has been {daysSince} day(s) since you joined</h2>
+      </div>
+      <br>
+      <div id="data-sep">
+        <h2>You have an daily active streak for:</h2> 
+        <h2>{daysSince} day(s)</h2>
+      </div>
+    </div>
   </div>
 </main>
