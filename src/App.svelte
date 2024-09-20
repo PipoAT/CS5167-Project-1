@@ -79,7 +79,9 @@
     </div>
     <div id="form">
       <div id="form-date">
+        <button id="decrementButton" on:click={() => updateDate(-1)}>Previous</button>
         <h2 id="date-display-form">{currentDateSelected}</h2>
+        <button id="incrementButton" on:click={() => updateDate(1)}>Next</button>
       </div>
       <br>
       <div id="form-main">
@@ -103,6 +105,7 @@
           <textarea id="events" name="events" bind:value={entry.events} required></textarea>
           <br><br>
           <label for="time">How long did you experience anxiety/emotions?</label>
+          <br>
           <input type="text" id="time" name="time" bind:value={entry.time} required>
           <br><br>
           <label for="effect">Did it affect any daily routines or tasks for the day?</label>
@@ -117,8 +120,6 @@
       </div>
       <br>
       <div id="form-nav">
-        <button id="decrementButton" on:click={() => updateDate(-1)}>Previous</button>
-        <button id="incrementButton" on:click={() => updateDate(1)}>Next</button>
       </div>
     </div>
   </div>

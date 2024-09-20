@@ -100,8 +100,8 @@ button:focus-visible {
 }
 
 #form-main {
-  color: lightblue;
-  background-color: darkcyan;
+  color: white;
+  background-color: #f5b57a;
   border-radius: 10px;
   padding: 10px;
 }
