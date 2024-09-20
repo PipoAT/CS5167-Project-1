@@ -66,7 +66,7 @@
       </div>
       <br>
       <div id="overview-sep">
-        <h2>{currentDateOnly}</h2>
+        <h2>Today's Date: {currentDateOnly}</h2>
       </div>
       <br>
       <div id="overview-sep">
@@ -74,7 +74,8 @@
       </div>
       <br>
       <div id="overview-sep">
-        <h2>You have been active for {daysSince} day(s) in a row!</h2>
+        <h2>You have an daily active streak for:</h2> 
+        <h2>{daysSince} day(s)</h2>
       </div>
     </div>
     <div id="form">
