@@ -99,9 +99,8 @@
         <h2>Today's Date: {currentDateOnly}</h2>
       </div>
       <br>
-      <br>
       <div id="overview-sep">
-        <h2>Days since you joined:</h2>
+        <h2>Days since you joined/starting logging:</h2>
         <h2>{daysSince}</h2>
       </div>
       <br>
@@ -167,7 +166,6 @@
         <h2>Average Time in Past Week of feeling Anxious:</h2>
         <h2>{averageAnxious} hour(s)</h2> 
       </div>
-      <br>
     </div>
   </div>
 </main>
