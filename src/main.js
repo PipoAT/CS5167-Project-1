@@ -69,6 +69,6 @@ function updateDate(increment) {
 
 document.getElementById('incrementButton').addEventListener('click', () => updateDate(1));
 document.getElementById('decrementButton').addEventListener('click', () => updateDate(-1));
-document.getElementById('saveButton').addEventListener('click', (event) => saveForm(event));
+//document.getElementById('saveButton').addEventListener('click', (event) => saveForm(event));
 
 export default app

@@ -4,13 +4,18 @@
 
   let entries = JSON.parse(localStorage.getItem('entries')) || {};
 
-  // Reactive statement to update entry when currentDateSelected changes
-  $: entry = entries[currentDateSelected] || { anxiety: '', emotions: '', thoughts: '', events: '', time: '', effect: '' };
+  onMount(() => {
+    if (entries[currentDateSelected]) {
+      entry = entries[currentDateSelected];
+    } else {
+      entry = { anxiety: '', emotions: '', thoughts: '', events: '', time: '', effect: '' };
+    }
+  });
 
   function saveForm(event) {
     event.preventDefault();  // Prevent the default form submission
     const formData = new FormData(event.target);
-    entry = {
+    let entry = {
       anxiety: formData.get('anxiety'),
       emotions: formData.get('emotions'),
       thoughts: formData.get('thoughts'),
@@ -23,6 +28,8 @@
     entries[currentDateSelected] = entry;
     localStorage.setItem('entries', JSON.stringify(entries));
 
+    // Update the app's state to reflect the new entry
+    entry = entries[currentDateSelected];
     alert('Entry saved!');
   }
 
@@ -32,6 +39,9 @@
 
     if (newDate <= new Date()) {
       currentDateSelected = newDate.toLocaleDateString();
+
+      // Update the app's state with the new date and entry
+      entry = entries[currentDateSelected] || { anxiety: '', emotions: '', thoughts: '', events: '', time: '', effect: '' };
     }
   }
 </script>
