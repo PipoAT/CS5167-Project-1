@@ -79,9 +79,13 @@
     </div>
     <div id="form">
       <div id="form-date">
-        <button id="decrementButton" on:click={() => updateDate(-1)}>Previous</button>
+        <button id="decrementButton" on:click={() => updateDate(-1)} style="cursor: pointer;" aria-label="Previous date">
+          <img src="/assets/left-arrow.png" alt="Previous" />
+        </button>
         <h2 id="date-display-form">{currentDateSelected}</h2>
-        <button id="incrementButton" on:click={() => updateDate(1)}>Next</button>
+        <button id="incrementButton" on:click={() => updateDate(1)} style="cursor: pointer;" aria-label="Next date">
+          <img src="/assets/right-arrow.png" alt="Next" />
+        </button>
       </div>
       <br>
       <div id="form-main">
@@ -117,9 +121,6 @@
           <button id="saveButton" type="submit">Save</button>
           <button id="deleteButton" on:click={() => deleteForm()}>Delete</button>
         </form>
-      </div>
-      <br>
-      <div id="form-nav">
       </div>
     </div>
   </div>
