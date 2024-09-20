@@ -36,9 +36,9 @@
   function deleteForm(event) {
     event.preventDefault();  // Prevent the default form submission
     if (entries[currentDateSelected]) {
-      entries[currentDateSelected] = { anxiety: '', emotions: '', thoughts: '', events: '', time: '', effect: '' };
+      delete entries[currentDateSelected];
       localStorage.setItem('entries', JSON.stringify(entries));
-      entry = entries[currentDateSelected];
+      entry = { anxiety: '', emotions: '', thoughts: '', events: '', time: '', effect: '' };
       alert('Entry data wiped out!');
     } else {
       alert('No entry found for the selected date!');
@@ -56,13 +56,15 @@
       entry = entries[currentDateSelected] || { anxiety: '', emotions: '', thoughts: '', events: '', time: '', effect: '' };
     }
   }
+
+  $: isEntrySaved = entry.anxiety || entry.emotions || entry.thoughts || entry.events || entry.time || entry.effect;
 </script>
 
 <main>
   <div class="container">
     <div id="overview">
       <div id="overview-sep">
-        <h2>Welcome, UserName!</h2>
+        <h2>Welcome, Andrew Pipo!</h2>
       </div>
       <br>
       <div id="overview-sep">
@@ -86,7 +88,7 @@
       </div>
       <br>
       <div id="form-main">
-        <form>
+        <form on:submit={saveForm}>
           <label for="anxiety">Did you feel anxious today?</label>
           <input type="radio" id="anxiety-yes" name="anxiety" value="yes" bind:group={entry.anxiety} required>
           <label for="anxiety-yes">Yes</label>
@@ -115,8 +117,8 @@
           <input type="radio" id="effect-no" name="effect" value="no" bind:group={entry.effect} required>
           <label for="effect-no">No</label>
           <br><br>
-          <button id="saveButton" on:click={() => saveForm()}>Save</button>
-          <button id="deleteButton" on:click={() => deleteForm()} disabled={!entries[currentDateSelected]}>Delete</button>
+          <button id="saveButton" type="submit">Save</button>
+          <button id="deleteButton" on:click={deleteForm} disabled={!isEntrySaved}>Delete</button>
         </form>
       </div>
     </div>
