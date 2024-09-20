@@ -33,6 +33,13 @@
     alert('Entry saved!');
   }
 
+  function deleteForm(event) {
+    event.preventDefault();  // Prevent the default form submission
+    delete entries[currentDateSelected];
+    localStorage.setItem('entries', JSON.stringify(entries));
+    alert('Deleted current entry!')
+  }
+
   function updateDate(increment) {
     let newDate = new Date(currentDateSelected);
     newDate.setDate(newDate.getDate() + increment);
@@ -100,6 +107,7 @@
           <label for="effect-no">No</label>
           <br><br>
           <button id="saveButton" type="submit">Save</button>
+          <button id="deleteButton" on:click={() => deleteForm()}>Delete</button>
         </form>
       </div>
       <br>
