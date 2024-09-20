@@ -95,24 +95,24 @@
   <div class="container">
     <div id="overview">
       <div id="overview-sep">
-        <h2>Welcome Back, Andrew Pipo!</h2>
-        <h2>Today's Date: {currentDateOnly}</h2>
+        <h3>Welcome Back, Andrew Pipo!</h3>
+        <h3>Today's Date: {currentDateOnly}</h3>
       </div>
       <br>
       <div id="overview-sep">
-        <h2>Days since you joined/starting logging:</h2>
-        <h2>{daysSince}</h2>
+        <h3>Days since you joined/starting logging:</h3>
+        <h3>{daysSince}</h3>
       </div>
       <br>
       <div id="overview-sep">
-        <h2>You have an daily active streak for:</h2> 
-        <h2>{daysSince} day(s)</h2>
+        <h3>You have an daily active streak for:</h3> 
+        <h3>{daysSince} day(s)</h3>
       </div>
     </div>
     <div id="form">
       <div id="form-date" style="display: flex; align-items: center; justify-content: center;">
         <img id="decrement-button" src=".\assets\left-arrow.png" alt="Previous" on:click={() => updateDate(-1)} />
-        <h2 id="date-display-form" style="margin: 0 10px;">{currentDateSelected}</h2>
+        <h3 id="date-display-form" style="margin: 0 10px;">{currentDateSelected}</h3>
         <img id="increment-button" src=".\assets\right-arrow.png" alt="Next" on:click={() => updateDate(1)}/>
       </div>
       <br>
@@ -153,18 +153,18 @@
     </div>
     <div id="data">
       <div id="data-sep">
-        <h2>Number of Days in Past Week You Felt Anxious:</h2>
-        <h2>{daysAnxious}</h2>
+        <h3>Number of Days in Past Week You Felt Anxious:</h3>
+        <h3>{daysAnxious}</h3>
       </div>
       <br>
       <div id="data-sep">
-        <h2>Number of Days in Past Week it has Affected Daily Tasks:</h2>
-        <h2>{daysAffected}</h2>
+        <h3>Number of Days in Past Week it has Affected Daily Tasks:</h3>
+        <h3>{daysAffected}</h3>
       </div>
       <br>
       <div id="data-sep">
-        <h2>Average Time in Past Week of feeling Anxious:</h2>
-        <h2>{averageAnxious} hour(s)</h2> 
+        <h3>Average Time in Past Week of feeling Anxious:</h3>
+        <h3>{averageAnxious} hour(s)</h3> 
       </div>
     </div>
   </div>
