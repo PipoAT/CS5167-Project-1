@@ -78,13 +78,13 @@
       </div>
     </div>
     <div id="form">
-      <div id="form-date">
-        <button id="decrementButton" on:click={() => updateDate(-1)} style="cursor: pointer;" aria-label="Previous date">
-          <img src="/assets/left-arrow.png" alt="Previous" />
+      <div id="form-date" style="display: flex; align-items: center; justify-content: center;">
+        <button id="decrementButton" on:click={() => updateDate(-1)} style="cursor: pointer; margin-right: 10px;" aria-label="Previous date">
+          <img src="/src/assets/left-arrow.png" alt="Previous" />
         </button>
-        <h2 id="date-display-form">{currentDateSelected}</h2>
-        <button id="incrementButton" on:click={() => updateDate(1)} style="cursor: pointer;" aria-label="Next date">
-          <img src="/assets/right-arrow.png" alt="Next" />
+        <h2 id="date-display-form" style="margin: 0 10px;">{currentDateSelected}</h2>
+        <button id="incrementButton" on:click={() => updateDate(1)} style="cursor: pointer; margin-left: 10px;" aria-label="Next date">
+          <img src="/src/assets/right-arrow.png" alt="Next" />
         </button>
       </div>
       <br>
