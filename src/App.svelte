@@ -36,9 +36,9 @@
   function deleteForm(event) {
     event.preventDefault();  // Prevent the default form submission
     if (entries[currentDateSelected]) {
-      entries[currentDateSelected] = { anxiety: '', emotions: '', thoughts: '', events: '', time: '', effect: '' };
+      delete entries[currentDateSelected];
       localStorage.setItem('entries', JSON.stringify(entries));
-      entry = entries[currentDateSelected];
+      entry = { anxiety: '', emotions: '', thoughts: '', events: '', time: '', effect: '' };
       alert('Entry data wiped out!');
     } else {
       alert('No entry found for the selected date!');
@@ -56,13 +56,15 @@
       entry = entries[currentDateSelected] || { anxiety: '', emotions: '', thoughts: '', events: '', time: '', effect: '' };
     }
   }
+
+  $: isEntrySaved = entry.anxiety || entry.emotions || entry.thoughts || entry.events || entry.time || entry.effect;
 </script>
 
 <main>
   <div class="container">
     <div id="overview">
       <div id="overview-sep">
-        <h2>Welcome, UserName!</h2>
+        <h2>Welcome, Andrew Pipo!</h2>
       </div>
       <br>
       <div id="overview-sep">
@@ -116,7 +118,7 @@
           <label for="effect-no">No</label>
           <br><br>
           <button id="saveButton" type="submit">Save</button>
-          <button id="deleteButton" on:click={() => deleteForm()} disabled={!entry.anxiety && !entry.emotions && !entry.thoughts && !entry.events && !entry.time && !entry.effect}>Delete</button>
+          <button id="deleteButton" on:click={deleteForm} disabled={!isEntrySaved}>Delete</button>
         </form>
       </div>
     </div>
