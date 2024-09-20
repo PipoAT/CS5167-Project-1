@@ -116,7 +116,7 @@
           <label for="effect-no">No</label>
           <br><br>
           <button id="saveButton" type="submit">Save</button>
-          <button id="deleteButton" on:click={() => deleteForm()} disabled={!entry.anxiety && !entry.emotions && !entry.thoughts && !entry.events && !entry.time && !entry.effect}>Delete</button>
+          <button id="deleteButton" on:click={() => deleteForm()} disabled={!entries[currentDateSelected]}>Delete</button>
         </form>
       </div>
     </div>
