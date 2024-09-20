@@ -73,30 +73,30 @@
       <div id="form-main">
         <form on:submit={saveForm}>
           <label for="anxiety">Did you feel anxious today?</label>
-          <input type="radio" id="anxiety-yes" name="anxiety" value="yes" bind:group={entry.anxiety}>
+          <input type="radio" id="anxiety-yes" name="anxiety" value="yes" bind:group={entry.anxiety} required>
           <label for="anxiety-yes">Yes</label>
-          <input type="radio" id="anxiety-no" name="anxiety" value="no" bind:group={entry.anxiety}>
+          <input type="radio" id="anxiety-no" name="anxiety" value="no" bind:group={entry.anxiety} required>
           <label for="anxiety-no">No</label>
           <br><br>
           <label for="emotions">What emotions were you experiencing?</label>
           <br>
-          <textarea id="emotions" name="emotions" bind:value={entry.emotions}></textarea>
+          <textarea id="emotions" name="emotions" bind:value={entry.emotions} required></textarea>
           <br><br>
           <label for="thoughts">What thoughts were you experiencing?</label>
           <br>
-          <textarea id="thoughts" name="thoughts" bind:value={entry.thoughts}></textarea>
+          <textarea id="thoughts" name="thoughts" bind:value={entry.thoughts} required></textarea>
           <br><br>
           <label for="events">What events occurred that led up to or triggered your anxiety and/or emotions?</label>
           <br>
-          <textarea id="events" name="events" bind:value={entry.events}></textarea>
+          <textarea id="events" name="events" bind:value={entry.events} required></textarea>
           <br><br>
           <label for="time">How long did you experience anxiety/emotions?</label>
-          <input type="text" id="time" name="time" bind:value={entry.time}>
+          <input type="text" id="time" name="time" bind:value={entry.time} required>
           <br><br>
           <label for="effect">Did it affect any daily routines or tasks for the day?</label>
-          <input type="radio" id="effect-yes" name="effect" value="yes" bind:group={entry.effect}>
+          <input type="radio" id="effect-yes" name="effect" value="yes" bind:group={entry.effect} required>
           <label for="effect-yes">Yes</label>
-          <input type="radio" id="effect-no" name="effect" value="no" bind:group={entry.effect}>
+          <input type="radio" id="effect-no" name="effect" value="no" bind:group={entry.effect} required>
           <label for="effect-no">No</label>
           <br><br>
           <button id="saveButton" type="submit">Save</button>
