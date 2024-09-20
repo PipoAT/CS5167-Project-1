@@ -35,9 +35,14 @@
 
   function deleteForm(event) {
     event.preventDefault();  // Prevent the default form submission
-    delete entries[currentDateSelected];
-    localStorage.setItem('entries', JSON.stringify(entries));
-    alert('Deleted current entry!')
+    if (entries[currentDateSelected]) {
+      entries[currentDateSelected] = { anxiety: '', emotions: '', thoughts: '', events: '', time: '', effect: '' };
+      localStorage.setItem('entries', JSON.stringify(entries));
+      entry = entries[currentDateSelected];
+      alert('Entry data wiped out!');
+    } else {
+      alert('No entry found for the selected date!');
+    }
   }
 
   function updateDate(increment) {

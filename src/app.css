@@ -89,8 +89,8 @@ button:focus-visible {
 }
 
 #overview-sep {
-  color: lightblue;
-  background-color: darkcyan;
+  color: white;
+  background-color: #88ACB5;
   border-radius: 10px;
   padding: 10px;
 }
