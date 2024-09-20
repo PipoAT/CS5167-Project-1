@@ -67,6 +67,15 @@
             let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
             return diffDays <= 7 && entries[date].anxiety === 'yes';
           }).length;
+
+  $: daysAffected = Object.keys(entries)
+          .filter(date => {
+            let entryDate = new Date(date);
+            let today = new Date();
+            let diffTime = Math.abs(today - entryDate);
+            let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays <= 7 && entries[date].effect === 'yes';
+          }).length;
 </script>
 
 <main>
@@ -138,7 +147,8 @@
       </div>
       <br>
       <div id="data-sep">
-        <h2>Today's Date: {currentDateOnly}</h2>
+        <h2>Number of Days in Past Week it has Affected Daily Tasks:</h2>
+        <h2>{daysAffected}</h2>
       </div>
       <br>
       <div id="data-sep">
