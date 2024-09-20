@@ -95,7 +95,8 @@
   <div class="container">
     <div id="overview">
       <div id="overview-sep">
-        <h2>Welcome, Andrew Pipo!</h2>
+        <h2>Welcome,</h2>
+        <h2>Andrew Pipo!</h2>
         <h2>Today's Date: {currentDateOnly}</h2>
       </div>
       <br>
