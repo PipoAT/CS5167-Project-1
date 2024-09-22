@@ -1,9 +1,12 @@
 <script>
+  // Exported props
   export let currentDateOnly, daysSince, currentDateSelected, entry;
   import { onMount } from 'svelte';
 
+  // Retrieve entries from localStorage or initialize as an empty object
   let entries = JSON.parse(localStorage.getItem('entries')) || {};
 
+  // onMount lifecycle function to initialize the entry for the selected date
   onMount(() => {
     if (entries[currentDateSelected]) {
       entry = entries[currentDateSelected];
@@ -12,6 +15,7 @@
     }
   });
 
+  // Function to save the form data
   function saveForm(event) {
     event.preventDefault();  // Prevent the default form submission
     const formData = new FormData(event.target);
@@ -34,6 +38,7 @@
     alert('Entry saved!');
   }
 
+  // Function to delete the form data
   function deleteForm(event) {
     event.preventDefault();  // Prevent the default form submission
     if (entries[currentDateSelected]) {
@@ -46,6 +51,7 @@
     }
   }
 
+  // Function to update the selected date
   function updateDate(increment) {
     let newDate = new Date(currentDateSelected);
     newDate.setDate(newDate.getDate() + increment);
@@ -58,8 +64,10 @@
     }
   }
 
+  // Reactive statement to check if the entry is saved
   $: isEntrySaved = entry.goal || entry.anxiety || entry.emotions || entry.thoughts || entry.events || entry.time || entry.effect;
 
+  // Reactive statement to calculate the number of days in the past week the user felt anxious
   $: daysAnxious = Object.keys(entries)
           .filter(date => {
             let entryDate = new Date(date);
@@ -69,6 +77,7 @@
             return diffDays <= 7 && entries[date].anxiety === 'yes';
           }).length;
 
+  // Reactive statement to calculate the number of days in the past week it affected daily tasks
   $: daysAffected = Object.keys(entries)
           .filter(date => {
             let entryDate = new Date(date);
@@ -78,6 +87,7 @@
             return diffDays <= 7 && entries[date].effect === 'yes';
           }).length;
 
+  // Reactive statement to calculate the average time in the past week of feeling anxious
   $: averageAnxious = (Object.keys(entries)
         .filter(date => {
           let entryDate = new Date(date);
