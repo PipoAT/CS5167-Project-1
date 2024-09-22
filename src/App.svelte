@@ -8,7 +8,7 @@
     if (entries[currentDateSelected]) {
       entry = entries[currentDateSelected];
     } else {
-      entry = { anxiety: '', emotions: '', thoughts: '', events: '', time: '', effect: '' };
+      entry = { goal: '', anxiety: '', emotions: '', thoughts: '', events: '', time: '', effect: '' };
     }
   });
 
@@ -16,6 +16,7 @@
     event.preventDefault();  // Prevent the default form submission
     const formData = new FormData(event.target);
     let entry = {
+      goal: formData.get('goal'),
       anxiety: formData.get('anxiety'),
       emotions: formData.get('emotions'),
       thoughts: formData.get('thoughts'),
@@ -38,7 +39,7 @@
     if (entries[currentDateSelected]) {
       delete entries[currentDateSelected];
       localStorage.setItem('entries', JSON.stringify(entries));
-      entry = { anxiety: '', emotions: '', thoughts: '', events: '', time: '', effect: '' };
+      entry = { goal: '', anxiety: '', emotions: '', thoughts: '', events: '', time: '', effect: '' };
       alert('Entry data wiped out!');
     } else {
       alert('No entry found for the selected date!');
@@ -53,11 +54,11 @@
       currentDateSelected = newDate.toLocaleDateString();
 
       // Update the app's state with the new date and entry
-      entry = entries[currentDateSelected] || { anxiety: '', emotions: '', thoughts: '', events: '', time: '', effect: '' };
+      entry = entries[currentDateSelected] || { goal: '', anxiety: '', emotions: '', thoughts: '', events: '', time: '', effect: '' };
     }
   }
 
-  $: isEntrySaved = entry.anxiety || entry.emotions || entry.thoughts || entry.events || entry.time || entry.effect;
+  $: isEntrySaved = entry.goal || entry.anxiety || entry.emotions || entry.thoughts || entry.events || entry.time || entry.effect;
 
   $: daysAnxious = Object.keys(entries)
           .filter(date => {
@@ -118,6 +119,10 @@
       <br>
       <div id="form-main">
         <form on:submit={saveForm}>
+          <label for="goal">Goal:</label>
+          <br>
+          <textarea id="goal" name="goal" bind:value={entry.goal} required></textarea>
+          <br><br>
           <label for="anxiety">Did you feel anxious today?</label>
           <input type="radio" id="anxiety-yes" name="anxiety" value="yes" bind:group={entry.anxiety} required>
           <label for="anxiety-yes">Yes</label>
